@@ -1,0 +1,44 @@
+.input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include mobile-down {
+    display: block;
+  }
+
+  &_label {
+    @include fontBase(16);
+    flex-shrink: 1;
+
+    @include desktop-down {
+      @include fontBase(10);
+    }
+
+    @include mobile-down {
+      @include fontBase(9);
+    }
+
+    &.required {
+      &::after {
+        content: "*";
+        color: $red;
+      }
+    }
+  }
+
+  &_input {
+    width: calc(100% - 10px);
+    border: rem(1) solid $battleshipGrey;
+    outline: none;
+    font-size: rem(15);
+    padding: rem(12);
+  }
+
+  &_inputContainer {
+    max-width: rem(250);
+    flex-shrink: 0;
+    transition: $normal-transition;
+    margin-left: rem(-100);
+  }
+}
